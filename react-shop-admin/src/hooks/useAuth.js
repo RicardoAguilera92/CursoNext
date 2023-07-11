@@ -25,10 +25,9 @@ function useProvideAuth() {
       },
     };
     const { data: access_token } = await axios.post(endPoints.auth.login, { email, password }, options);
-    if (acces_token) {
-      const token = access_token.acces_token;
+    if (access_token) {
+      const token = access_token.access_token;
       Cookie.set('token', token, { expires: 5 });
-
       axios.defaults.headers.Authorization = `Bearer ${token}`;
       const { data: user } = await axios.get(endPoints.auth.profile);
       setUser(user);
