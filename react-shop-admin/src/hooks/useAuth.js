@@ -25,7 +25,9 @@ function useProvideAuth() {
       },
     };
     const { data: access_token } = await axios.post(endPoints.auth.login, { email, password }, options);
-    
+    if (acces_token) {
+      Cookie.set('token', access_token.access_token, { expires: 5 });
+    }
   };
 
   return {
