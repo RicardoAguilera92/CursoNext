@@ -8,6 +8,19 @@ const endPoints = {
   },
   products: {
     getProduct: (id) => `${API}/api/${VERSION}/products/${id}`,
+    getProducts: (limit, offset) => `${API}/api/${VERSION}/products?limit=${limit}&offset=${offset}`,
+    addProducts: `${API}/api/${VERSION}/products`,
+    updateProducts: (id) => `${API}/api/${VERSION}/products/${id}/`,
+    deleteProducts: (id) => `${API}/api/${VERSION}/products/${id}/`,
+  },
+  categories: {
+    getCategoriesList: `${API}/api/${VERSION}/categories/`,
+    addCategory: `${API}/api/${VERSION}/categories/`,
+    getCategoryItems: (id) => `${API}/api/${VERSION}/categories/${id}/products/`,
+    updateCategory: (id) => `${API}/api/${VERSION}/categories/${id}/`,
+  },
+  files: {
+    addImage: `${API}/api/${VERSION}/files/upload/`,
   },
 };
 
