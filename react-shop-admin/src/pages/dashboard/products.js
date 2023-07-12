@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
-import { PlusIcon } from '@heroicons/react/20/solid';
+import { PlusIcon } from '@heroicons/react/24/outline';
 import Modal from '@common/Modal';
-import FormProduct from '@components/FormProducts';
+import FormProduct from '@components/FormProduct';
 import axios from 'axios';
 import endPoints from '@services/api';
 import useAlert from '@hooks/useAlert';
 import Alert from '@common/Alert';
 
 export default function Products() {
-  const [products, setProducts] = useState([]);
   const [open, setOpen] = useState(false);
+  const [products, setProducts] = useState([]);
   const { alert, setAlert, toggleAlert } = useAlert();
 
   useEffect(() => {
@@ -28,17 +28,17 @@ export default function Products() {
     <>
       <Alert alert={alert} handleClose={toggleAlert} />
       <div className="lg:flex lg:items-center lg:justify-between mb-8">
-        <div className="min-w-0 flex-1">
-          <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">List of products</h2>
+        <div className="flex-1 min-w-0">
+          <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">List of Products</h2>
         </div>
-        <div className="mt-5 flex lg:ml-4 lg:mt-0">
+        <div className="mt-5 flex lg:mt-0 lg:ml-4">
           <span className="sm:ml-3">
             <button
               type="button"
-              className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               onClick={() => setOpen(true)}
             >
-              <PlusIcon className="-ml-0.5 mr-1.5 h-5 w-5" aria-hidden="true" />
+              <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
               Add Product
             </button>
           </span>
@@ -93,12 +93,12 @@ export default function Products() {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.id}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
+                        <a href="/edit" className="text-indigo-600 hover:text-indigo-900">
                           Edit
                         </a>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
+                        <a href="/edit" className="text-indigo-600 hover:text-indigo-900">
                           Delete
                         </a>
                       </td>

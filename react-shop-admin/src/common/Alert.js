@@ -4,7 +4,7 @@ const Alert = ({ alert, handleClose }) => {
   if (alert && alert?.autoClose) {
     setTimeout(() => {
       handleClose();
-    }, 900);
+    }, 9000);
   }
 
   return (

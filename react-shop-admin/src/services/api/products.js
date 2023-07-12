@@ -1,7 +1,7 @@
-import axios from 'axios';
 import endPoints from '@services/api';
+import axios from 'axios';
 
-const addProduct = async (product) => {
+const addProduct = async (body) => {
   const config = {
     headers: {
       accept: '*/*',
@@ -9,7 +9,8 @@ const addProduct = async (product) => {
     },
   };
   const response = await axios.post(endPoints.products.addProducts, body, config);
+
   return response.data;
 };
 
-export { addProduct };
+export { addProduct};
